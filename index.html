@@ -1,0 +1,359 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Rommel Bitco Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: dark-navy cover with a faint code-grid, sticky section nav, then calm single-column sections with a consistent card system. */
+:root {
+  --bg: #0b1426;
+  --bg-2: #0f1b33;
+  --card: #132240;
+  --line: #243558;
+  --fg: #eaf1fb;
+  --muted: #9fb0cc;
+  --accent: #38d4e8;
+  --accent-ink: #062a33;
+  --ph: #f2c46b;
+  --font-display: "Sora", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f5f8fc; --bg-2: #eaf0f8; --card: #ffffff; --line: #cfdaea;
+    --fg: #0f1b33; --muted: #4a5b78; --accent: #0a7f92; --accent-ink: #ffffff; --ph: #8a5a00;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #f5f8fc; --bg-2: #eaf0f8; --card: #ffffff; --line: #cfdaea;
+  --fg: #0f1b33; --muted: #4a5b78; --accent: #0a7f92; --accent-ink: #ffffff; --ph: #8a5a00;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 17px; line-height: 1.6;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg-2); }
+.wrap { max-width: 1040px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; line-height: 1.15; margin: 0; }
+.mono { font-family: var(--font-mono); }
+.label { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+
+/* Placeholder marker, used everywhere information is still missing */
+.ph { font-family: var(--font-mono); font-size: .88em; color: var(--ph); border: 1px dashed var(--ph); border-radius: 4px; padding: 1px 7px; white-space: normal; }
+
+/* Cover */
+.cover { background: var(--bg); position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+.cover::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 44px 44px; opacity: .35;
+  -webkit-mask-image: radial-gradient(ellipse at 80% 20%, #000 0%, transparent 70%);
+  mask-image: radial-gradient(ellipse at 80% 20%, #000 0%, transparent 70%);
+}
+.cover .wrap { position: relative; padding-block: 72px 64px; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.cover h1 { font-size: clamp(2.3rem, 6vw, 4rem); font-weight: 700; margin: 14px 0 12px; }
+.cover .role { font-family: var(--font-display); font-size: clamp(1.1rem, 2.4vw, 1.4rem); color: var(--accent); font-weight: 500; }
+.cover .tag { color: var(--muted); max-width: 46ch; margin: 16px 0 28px; font-size: 1.1rem; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-block; font-family: var(--font-display); font-weight: 600; font-size: 15px; text-decoration: none; padding: 11px 20px; border-radius: 6px; border: 1px solid var(--accent); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); }
+.btn.ghost { color: var(--accent); background: transparent; }
+.window { background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; min-width: 0; }
+.window .bar { display: flex; gap: 7px; padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--bg-2); }
+.window .bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); display: block; }
+.window pre { margin: 0; padding: 18px; font-family: var(--font-mono); font-size: 13.5px; line-height: 1.75; color: var(--fg); overflow-x: auto; }
+.window .k { color: var(--accent); }
+.window .c { color: var(--muted); }
+
+/* Nav */
+nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bg-2); border-bottom: 1px solid var(--line); }
+nav .wrap { display: flex; align-items: center; gap: 8px; overflow-x: auto; padding-block: 6px; }
+nav .brand { font-family: var(--font-display); font-weight: 700; margin-right: auto; white-space: nowrap; padding-right: 16px; }
+nav a { font-family: var(--font-mono); font-size: 13px; color: var(--muted); text-decoration: none; padding: 9px 12px; border-radius: 6px; white-space: nowrap; }
+nav a:hover { color: var(--fg); background: var(--card); }
+
+/* Sections */
+section { padding-block: 72px 8px; scroll-margin-top: 56px; }
+.sec-head { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+.sec-head h2 { font-size: clamp(1.7rem, 4vw, 2.3rem); }
+.sec-head p { margin: 0; color: var(--muted); max-width: 62ch; }
+
+.about { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 32px; }
+.about p { margin: 0 0 16px; max-width: 65ch; }
+.facts { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 16px; align-self: start; min-width: 0; }
+.facts div span { display: block; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.traits { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-top: 28px; }
+.trait { border-top: 2px solid var(--accent); padding-top: 12px; }
+.trait h3 { font-size: 1.02rem; margin-bottom: 4px; }
+.trait p { margin: 0; color: var(--muted); font-size: .97rem; }
+
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.cat { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 22px; min-width: 0; }
+.cat h3 { font-size: 1.05rem; display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.cat h3 svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { font-family: var(--font-mono); font-size: 13.5px; padding: 5px 12px; border-radius: 5px; border: 1px solid var(--accent); color: var(--fg); background: var(--bg-2); }
+.tag.pending { border-style: dashed; border-color: var(--ph); color: var(--ph); background: transparent; }
+.note { margin-top: 18px; color: var(--muted); font-size: .95rem; }
+
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 22px; }
+.proj { background: var(--card); border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; min-width: 0; }
+.proj .shot { aspect-ratio: 16 / 7; max-width: 100%; border-bottom: 1px dashed var(--line); background: var(--bg-2); display: grid; place-items: center; color: var(--muted); font-family: var(--font-mono); font-size: 13px; border-radius: 10px 10px 0 0; text-align: center; padding: 8px; }
+.proj .body { padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+.proj h3 { font-size: 1.25rem; }
+.proj .top { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; }
+.proj dl { margin: 0; display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 10px 14px; font-size: .97rem; }
+.proj dt { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+.proj dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.proj .links { display: flex; flex-wrap: wrap; gap: 14px; padding-top: 4px; border-top: 1px solid var(--line); margin-top: 4px; font-size: .95rem; }
+
+.empty { border: 1px dashed var(--line); border-radius: 10px; padding: 32px 24px; background: var(--card); max-width: 720px; }
+.empty h3 { font-size: 1.15rem; margin-bottom: 8px; }
+.empty p { margin: 0; color: var(--muted); }
+
+.contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 16px; }
+.row { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.row .v { font-size: 1.05rem; overflow-wrap: anywhere; }
+.row .actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; font-size: .92rem; }
+.copy { font-family: var(--font-mono); font-size: 12.5px; color: var(--accent); background: transparent; border: 1px solid var(--line); border-radius: 5px; padding: 3px 10px; cursor: pointer; }
+.copy:hover { border-color: var(--accent); }
+
+footer { margin-top: 80px; border-top: 1px solid var(--line); background: var(--bg-2); }
+footer .wrap { padding-block: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; color: var(--muted); font-size: .92rem; }
+
+@media (max-width: 760px) {
+  .cover .wrap, .about { grid-template-columns: minmax(0, 1fr); }
+  .cover .wrap { padding-block: 48px 44px; }
+  .proj dl { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .proj dt { padding-top: 10px; }
+  section { padding-top: 56px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+
+<header class="cover" id="top">
+  <div class="wrap">
+    <div>
+      <span class="label">Portfolio for OJT applications</span>
+      <h1>Rommel A. Bitco</h1>
+      <div class="role">BSCS Student Portfolio</div>
+      <p class="tag">A Computer Science student building a foundation in Java and software development, ready to learn and contribute on the job.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn ghost" href="#contact">Contact me</a>
+      </div>
+    </div>
+    <div class="window" aria-hidden="true">
+      <div class="bar"><i></i><i></i><i></i></div>
+<pre><span class="c">// Student.java</span>
+<span class="k">public class</span> Student {
+  String name = "Rommel A. Bitco";
+  String course = "BSCS";
+  String goal = "OJT in software";
+
+  <span class="k">void</span> learn() { <span class="c">/* always */</span> }
+}</pre>
+    </div>
+  </div>
+</header>
+
+<nav aria-label="Sections">
+  <div class="wrap">
+    <span class="brand">R. Bitco</span>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="about">
+  <div class="sec-head">
+    <span class="label">About me</span>
+    <h2>A BSCS student who likes solving problems with code</h2>
+  </div>
+  <div class="about">
+    <div>
+      <p>I am Rommel A. Bitco, a Bachelor of Science in Computer Science (BSCS) student. I am interested in software development and enjoy turning a problem into a working program, one step at a time.</p>
+      <p>My programming work so far has centered on Java, where I practice programming logic, object-oriented programming, and basic algorithms through academic and personal projects.</p>
+      <p>I am looking for an On-the-Job Training placement where I can learn from experienced developers, take on real tasks, and grow my technical skills. I am willing to learn, adapt to new tools and teams, and approach problems with patience and creativity.</p>
+      <p><span class="ph">Add 1–2 sentences about your specific interests, e.g. web, mobile, games, data</span></p>
+    </div>
+    <aside class="facts">
+      <div><span>Program</span>Bachelor of Science in Computer Science</div>
+      <div><span>University</span><span class="ph">University / school name</span></div>
+      <div><span>Year level</span><span class="ph">e.g. 3rd year</span></div>
+      <div><span>Seeking</span>On-the-Job Training (OJT) in software development</div>
+    </aside>
+  </div>
+  <div class="traits">
+    <div class="trait"><h3>Willing to learn</h3><p>Open to feedback and new technologies.</p></div>
+    <div class="trait"><h3>Problem solving</h3><p>Breaks problems into small, testable steps.</p></div>
+    <div class="trait"><h3>Creativity</h3><p>Looks for simple, clear ways to build features.</p></div>
+    <div class="trait"><h3>Adaptability</h3><p>Comfortable picking up new tools and workflows.</p></div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="sec-head">
+    <span class="label">Technical skills</span>
+    <h2>Languages, tools, and concepts</h2>
+    <p>Solid tags are skills confirmed for this portfolio. Dashed tags are waiting for confirmation and will be removed if not used.</p>
+  </div>
+  <div class="skills">
+    <div class="cat">
+      <h3><svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>Programming languages</h3>
+      <div class="tags"><span class="tag">Java</span><span class="tag pending">Other language? (confirm)</span></div>
+    </div>
+    <div class="cat">
+      <h3><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>Development tools</h3>
+      <div class="tags"><span class="tag pending">IntelliJ IDEA (confirm)</span><span class="tag pending">Git (confirm)</span><span class="tag pending">GitHub (confirm)</span></div>
+    </div>
+    <div class="cat">
+      <h3><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M6 8.5v3a3 3 0 003 3h6a3 3 0 003-3v-3M12 14.5V15.5"/></svg>Core concepts</h3>
+      <div class="tags"><span class="tag pending">Object-oriented programming (confirm)</span><span class="tag pending">Problem solving (confirm)</span><span class="tag pending">Algorithms (confirm)</span><span class="tag pending">Programming logic (confirm)</span></div>
+    </div>
+    <div class="cat">
+      <h3><svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3zM4 7.5l8 4.5 8-4.5M12 12v9"/></svg>Other technologies</h3>
+      <div class="tags"><span class="tag pending">Add only what you have used</span></div>
+    </div>
+  </div>
+  <p class="note">No proficiency percentages are shown, so every skill listed here can be backed up with a project or in an interview.</p>
+</section>
+
+<section id="projects">
+  <div class="sec-head">
+    <span class="label">Projects</span>
+    <h2>Academic and personal programming projects</h2>
+    <p>Each card uses the same format. Titles below are candidates and stay only if they are confirmed as your own work.</p>
+  </div>
+  <div class="projects">
+
+    <article class="proj">
+      <div class="shot">[ Screenshot placeholder ]</div>
+      <div class="body">
+        <div class="top"><h3>Java Calculator</h3><span class="ph">Confirm it is yours</span></div>
+        <dl>
+          <dt>Work type</dt><dd><span class="ph">Individual or group?</span></dd>
+          <dt>Description</dt><dd><span class="ph">What it does and which operations it supports</span></dd>
+          <dt>Objective</dt><dd><span class="ph">What problem or learning goal it covers</span></dd>
+          <dt>My role</dt><dd><span class="ph">Your actual contributions</span></dd>
+          <dt>Built with</dt><dd><span class="tag">Java</span> <span class="ph">IDE / other tools</span></dd>
+        </dl>
+        <div class="links"><span class="ph">GitHub link</span><span class="ph">Demo / screenshots</span></div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="shot">[ Screenshot placeholder ]</div>
+      <div class="body">
+        <div class="top"><h3>Number Guessing Game</h3><span class="ph">Confirm it is yours</span></div>
+        <dl>
+          <dt>Work type</dt><dd><span class="ph">Individual or group?</span></dd>
+          <dt>Description</dt><dd><span class="ph">How the game plays and what feedback it gives</span></dd>
+          <dt>Objective</dt><dd><span class="ph">What problem or learning goal it covers</span></dd>
+          <dt>My role</dt><dd><span class="ph">Your actual contributions</span></dd>
+          <dt>Built with</dt><dd><span class="tag">Java</span> <span class="ph">IDE / other tools</span></dd>
+        </dl>
+        <div class="links"><span class="ph">GitHub link</span><span class="ph">Demo / screenshots</span></div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="shot">[ Screenshot placeholder ]</div>
+      <div class="body">
+        <div class="top"><h3>Bank Management System</h3><span class="ph">Confirm it is yours</span></div>
+        <dl>
+          <dt>Work type</dt><dd><span class="ph">Individual or group?</span></dd>
+          <dt>Description</dt><dd>A Java program with balance inquiry, deposit, and withdrawal features. <span class="ph">Add any other features you built</span></dd>
+          <dt>Objective</dt><dd><span class="ph">What problem or learning goal it covers</span></dd>
+          <dt>My role</dt><dd><span class="ph">Your actual contributions</span></dd>
+          <dt>Built with</dt><dd><span class="tag">Java</span> <span class="ph">IDE / other tools</span></dd>
+        </dl>
+        <div class="links"><span class="ph">GitHub link</span><span class="ph">Demo / screenshots</span></div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="shot">[ Screenshot placeholder ]</div>
+      <div class="body">
+        <div class="top"><h3>Array Searching Program</h3><span class="ph">Confirm it is yours</span></div>
+        <dl>
+          <dt>Work type</dt><dd><span class="ph">Individual or group?</span></dd>
+          <dt>Description</dt><dd><span class="ph">Which search method(s) it uses</span></dd>
+          <dt>Objective</dt><dd><span class="ph">What problem or learning goal it covers</span></dd>
+          <dt>My role</dt><dd><span class="ph">Your actual contributions</span></dd>
+          <dt>Built with</dt><dd><span class="tag">Java</span> <span class="ph">IDE / other tools</span></dd>
+        </dl>
+        <div class="links"><span class="ph">GitHub link</span><span class="ph">Demo / screenshots</span></div>
+      </div>
+    </article>
+
+  </div>
+  <p class="note">For group projects, state only the parts you personally built. Anything from tutorials or libraries should be credited as an external resource.</p>
+</section>
+
+<section id="achievements">
+  <div class="sec-head">
+    <span class="label">Certifications and achievements</span>
+    <h2>Professional development</h2>
+  </div>
+  <div class="empty">
+    <h3>Nothing to display yet</h3>
+    <p>Certifications and achievements will be added as I continue my professional development.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="sec-head">
+    <span class="label">Contact</span>
+    <h2>Let's talk about OJT opportunities</h2>
+    <p>The best way to reach me is by email.</p>
+  </div>
+  <div class="contact">
+    <div class="row"><span class="label">Full name</span><span class="v">Rommel A. Bitco</span></div>
+    <div class="row">
+      <span class="label">Email</span>
+      <span class="v" id="email">bitcorommel@gmail.com</span>
+      <div class="actions"><a href="mailto:bitcorommel@gmail.com">Send email</a><button class="copy" type="button" data-copy="bitcorommel@gmail.com">Copy</button></div>
+    </div>
+    <div class="row">
+      <span class="label">Contact number</span>
+      <span class="v">0927 532 9347</span>
+      <div class="actions"><a href="tel:+639275329347">Call</a><button class="copy" type="button" data-copy="09275329347">Copy</button></div>
+    </div>
+    <div class="row"><span class="label">Location</span><span class="v"><span class="ph">City, Province (optional)</span></span></div>
+    <div class="row"><span class="label">GitHub</span><span class="v"><span class="ph">github.com/your-username</span></span></div>
+    <div class="row"><span class="label">LinkedIn</span><span class="v"><span class="ph">linkedin.com/in/your-profile (optional)</span></span></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap"><span>Rommel A. Bitco · BSCS Student Portfolio</span><a href="#top">Back to top</a></div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var t = b.getAttribute('data-copy');
+    var done = function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1500); };
+    try {
+      navigator.clipboard.writeText(t).then(done, function () { b.textContent = 'Select and copy'; });
+    } catch (e) { b.textContent = 'Select and copy'; }
+  });
+});
+</script>
+
+</body></html>
